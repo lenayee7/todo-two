@@ -1,0 +1,10 @@
+<h1> HELLO FISHIE </h1>
+
+<ul>
+	<% @todo_lists.each do |todo_list| %>
+		<li><%= link_to todo_list.title, (todo_list) %></li>
+	<% end %>
+</ul>
+
+
+
