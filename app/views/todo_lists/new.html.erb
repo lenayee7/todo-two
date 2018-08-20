@@ -1,0 +1,11 @@
+<h1>CREATE A TODO LIST</h1>
+
+<%= form_for @todo_list, url: {action: "create"} do |f| %>
+<ul>
+	<li>Title:</li>
+	<li><%= f.text_field :title %></li>
+	<li>Description:</li>
+	<li><%= f.text_area :description %></li>
+	<li><%= f.submit "SUBMIT TODOLIST" %></li>
+</ul>
+<% end %>
