@@ -1,0 +1,17 @@
+<h1>CREATE A NEW LIST ITEM</h1>
+
+<%= form_for [@todo_list, @todo_list_item] do |f| %>
+
+<ul>
+	<li>Name:</li>
+	<li><%= f.text_field :name %></li>
+	<li>Description:</li>
+	<li><%= f.text_area :description %></li>
+	<li>Priority Level:</li>
+	<li><%= f.select "priority", [1,2,3,4,5] %></li>
+	<li>Completed</li>
+	<li><%= f.check_box "completed" %></li>
+	<li><%= f.submit "SUBMIT TODOLIST" %></li>
+</ul>
+
+<% end %>

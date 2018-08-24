@@ -1,2 +1,4 @@
 <h1><%= @todo_list.title %></h1>
 <h1><%= @todo_list.description %></h1>
+
+<%= link_to "Create New List Item", new_todo_list_todo_list_item_path(@todo_list) %>
