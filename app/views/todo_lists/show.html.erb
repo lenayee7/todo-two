@@ -1,2 +1,26 @@
+
+<% if flash[:notice] %>
+    <div class="flash"><%= flash[:notice] %></div>
+<% end %>
+
 <h1><%= @todo_list.title %></h1>
 <h1><%= @todo_list.description %></h1>
+
+<div>
+	<%= link_to "Create New List Item", new_todo_list_todo_list_item_path(@todo_list) %>
+</div>
+
+<ul>
+  <% @todo_list_items.each do |list_item| %>
+  <h4 style="text-decoration: underline">
+  	<%= "Name: #{list_item.name}" %> </h4>
+  <li><%= list_item.description %></li>
+  <li>Priority: <%= list_item.priority %></li>
+  <li><%= list_item.completed %></li>
+  <% end %>
+</ul>
+
+
+
+
+
