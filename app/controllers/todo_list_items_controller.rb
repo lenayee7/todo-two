@@ -14,7 +14,8 @@ class TodoListItemsController < ApplicationController
 
 		@todo_list_item = TodoListItem.create!(todo_list_id: params[:todo_list_id], name: name, description: description, priority: priority, completed: completed)
 
-		redirect_to "/todo_lists/#{params[:todo_list_id]}"
+		# flash[:notice] = "Post successfully created"
+		redirect_to "/todo_lists/#{params[:todo_list_id]}", flash: {notice: "YaYYYY you created a List Item"}
 
 	end
 
