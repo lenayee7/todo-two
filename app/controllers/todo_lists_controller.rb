@@ -23,4 +23,12 @@ class TodoListsController < ApplicationController
 		render 'show'
 	end
 
+	def destroy
+		@todo_list = TodoList.find(params[:id])
+		@todo_lists = TodoList.all
+		@todo_list.destroy
+		flash[:notice] = "DELETED TODO LIST"
+		render 'index'
+	end
+
 end
