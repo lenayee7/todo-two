@@ -1,0 +1,12 @@
+<h1>EDIT TODO LIST</h1>
+
+<%= form_for @todo_list, url: {action: "update"} do |f| %>
+	<ul>
+		<li>Title:</li>
+		<li><%= f.text_field :title %></li>
+		<li>Description:</li>
+		<li><%= f.text_area :description %></li>
+		<li><%= f.submit "UPDATING TODOLIST" %></li>
+	</ul>
+<% end %>
+

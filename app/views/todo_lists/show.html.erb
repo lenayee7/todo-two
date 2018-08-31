@@ -10,6 +10,7 @@
 	<%= link_to "Create New List Item", new_todo_list_todo_list_item_path(@todo_list) %>
 </div>
 
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) %>
 <%= link_to 'Delete', todo_list_path(@todo_list), method: :delete %> 
 
 <ul>
