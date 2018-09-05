@@ -1,15 +1,8 @@
 class TodoListItemsController < ApplicationController
 
-	def new
-		@todo_list = TodoList.find(params[:todo_list_id])
-		@todo_list_item = TodoListItem.new(todo_list_id: params[:todo_list_id])
-	end
-
-  def edit
+  def new
     @todo_list = TodoList.find(params[:todo_list_id])
-    @todo_list_item = @todo_list.todo_list_items.find(params[:id])
-
-    render 'edit'
+    @todo_list_item = TodoListItem.new(todo_list_id: params[:todo_list_id])
   end
 
   def create
@@ -23,6 +16,21 @@ class TodoListItemsController < ApplicationController
 
     flash[:notice] = "YaYYYY you created a List Item"
     redirect_to "/todo_lists/#{params[:todo_list_id]}"
+  end
+
+  def destroy
+    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_list_item = @todo_list.todo_list_items.find(params[:id])
+    @todo_list_item.destroy
+    
+    redirect_to @todo_list, :notice => "Wow, You Deleted a Todo List Item"
+  end
+
+  def edit
+    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_list_item = @todo_list.todo_list_items.find(params[:id])
+
+    render 'edit'
   end
 
   def update
