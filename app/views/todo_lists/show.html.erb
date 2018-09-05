@@ -19,10 +19,11 @@
   	<%= "Name: #{list_item.name}" %> </h4>
   <li><%= list_item.description %></li>
   <li>Priority: <%= list_item.priority %></li>
-  <li><%= list_item.completed %></li>
+  <li><%= list_item.completed %></li> 
+  <%= button_to 'Delete todo list-item', todo_list_todo_list_item_path(@todo_list, list_item), method: :delete %> 
+
   <% end %>
 </ul>
-
 
 
 

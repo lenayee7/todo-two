@@ -2,7 +2,11 @@
     <div class="flash"><%= flash[:notice] %></div>
 <% end %>
 
-<h1> HELLO FISHIE </h1>
+<h1> HELLO FISHIE, here are your Todo Lists: </h1>
+
+<div>
+  <%= link_to "Create New Todo List", new_todo_list_path(@todo_list) %>
+</div>
 
 <ul>
 	<% @todo_lists.each do |todo_list| %>

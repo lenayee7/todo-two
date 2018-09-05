@@ -2,6 +2,7 @@ class TodoListsController < ApplicationController
 
   def index
     @todo_lists = TodoList.all
+    @todo_list = TodoList.new
   end
 
   def show
