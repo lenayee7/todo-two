@@ -1,12 +1,15 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag 'todo_lists/index.js' %>
 <% end %>
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag 'todo_lists/index' %>
+<% end %>
 
 <% if flash[:notice] %>
     <div class="flash"><%= flash[:notice] %></div>
 <% end %>
-<div class='container'>
 
+<div class='container'>
   <h1> HELLO FISHIE, here are your Todo Lists: </h1>
 
   <div>
