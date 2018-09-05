@@ -26,5 +26,25 @@ class TodoListItemsController < ApplicationController
     redirect_to @todo_list, :notice => "Wow, You Deleted a Todo List Item"
   end
 
+  def edit
+    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_list_item = @todo_list.todo_list_items.find(params[:id])
+
+    render 'edit'
+  end
+
+  def update
+    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_list_item = @todo_list.todo_list_items.find(params[:id])
+    @todo_list_item.update(todo_list_item_params)
+
+    redirect_to "/todo_lists/#{params[:todo_list_id]}", notice: "ARF Name: \"#{@todo_list_item.name}\" has been updated."
+  end
+
+  private
+
+  def todo_list_item_params
+    params.require(:todo_list_item).permit(:name, :description, :priority, :completed)
+  end
 
 end

@@ -3,6 +3,8 @@
     <div class="flash"><%= flash[:notice] %></div>
 <% end %>
 
+<%= link_to 'Home', todo_lists_path(@todo_list) %>
+
 <h1><%= @todo_list.title %></h1>
 <h1><%= @todo_list.description %></h1>
 
@@ -20,8 +22,8 @@
   <li><%= list_item.description %></li>
   <li>Priority: <%= list_item.priority %></li>
   <li><%= list_item.completed %></li> 
-  <%= button_to 'Delete todo list-item', todo_list_todo_list_item_path(@todo_list, list_item), method: :delete %> 
-
+  <%= link_to 'Delete', todo_list_todo_list_item_path(@todo_list, list_item), method: :delete %> 
+  <%= link_to 'Edit', edit_todo_list_todo_list_item_path(@todo_list, list_item) %>
   <% end %>
 </ul>
 

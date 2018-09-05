@@ -1,0 +1,15 @@
+<h1>EDIT TODO LIST ITEMS</h1>
+
+<%= form_for @todo_list_item, url: {action: "update"} do |f| %>
+  <ul>
+    <li><%= f.text_field :name %></li>
+    <li>Description:</li>
+    <li><%= f.text_area :description %></li>
+    <li>Priority Level:</li>
+    <li><%= f.select "priority", [1,2,3,4,5] %></li>
+    <li>Completed</li>
+    <li><%= f.check_box "completed" %></li>
+    <li><%= f.submit "UPDATING TODOLIST LIST-ITEM" %></li>
+  </ul>
+<% end %>
+
