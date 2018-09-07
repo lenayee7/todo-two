@@ -45,4 +45,8 @@
 	font-size: 50px;
 }
 
+.navbar-link {
+  display: inline-block;
+  margin-right: 5px;
+}
 
