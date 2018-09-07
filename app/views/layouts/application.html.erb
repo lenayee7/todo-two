@@ -16,7 +16,32 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <% if flash[:notice] %>
+        <div class="flash"><%= flash[:notice] %></div>
+    <% end %>
+
+    <div class='row navbar z-depth-3'>
+      <div class='container'>
+        <!-- left section -->
+          <!-- icon -->
+          <!-- title -->
+        <div class='col s6'>
+          <%= image_tag 'assignment-icon.svg', class: 'nav-icon' %>
+          <h1 class='nav-header'>TodoTwo</h1>
+        </div>
+        <!-- right section -->
+          <!-- link1 -->
+          <!-- link2 ... -->
+      </div>
+    </div>
+
+    <%= yield :header %>
+    <div class='container'>
+      <%= yield %>
+    </div>
+    <%= yield :footer %>
+
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <%= yield :javascripts %>
     <!-- Compiled and minified JavaScript -->
