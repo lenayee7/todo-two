@@ -1,6 +1,16 @@
+<!-- <% content_for :javascripts do %>
+  <%= javascript_include_tag 'todo_lists/color_module.js' %>
+<% end %> -->
+
 <% if flash[:notice] %>
     <div class="flash"><%= flash[:notice] %></div>
 <% end %>
+<div class='container' id='color-changing-container'>
+<div id='color-selection-element'>
+  <span class="dot purple lighten-5" data-color-value='purple lighten-5'></span>
+  <span class="dot purple lighten-3" data-color-value='purple lighten-3'></span>
+  <span class="dot purple darken-1" data-color-value='purple darken-1'></span>
+</div>
 
 <h1> HELLO FISHIE, here are your Todo Lists: </h1>
 
@@ -13,6 +23,4 @@
 		<li><%= link_to todo_list.title, (todo_list) %></li>
 	<% end %>
 </ul>
-
-
-
+</div>

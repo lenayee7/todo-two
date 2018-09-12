@@ -17,3 +17,10 @@
 .flash {
 	color: #8a00e6;
 }
+
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
