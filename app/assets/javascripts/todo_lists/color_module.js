@@ -4,7 +4,6 @@ function ColorPicker(element) {
   this.colorChangingElement = $('#color-changing-container');
 
   this.changeColor = function(event) {
-    debugger;
     var target = $(event.target)
     // https://api.jquery.com/hasclass/
     if (target.hasClass('dot')) {
@@ -20,5 +19,6 @@ function ColorPicker(element) {
 $(document).ready(function() {
   var selectionElement = $('#color-selection-element');
   var colorPicker = new ColorPicker(selectionElement);
+
   window.colorPicker = colorPicker;
 });
