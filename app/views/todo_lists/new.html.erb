@@ -1,11 +1,17 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'todo_lists/index.js' %>
+<% end %>
+
 <h1>CREATE A TODO LIST</h1>
 
-<%= form_for @todo_list, url: {action: "create"} do |f| %>
+<%= form_for @todo_list, url: {action: "create"}, :html => {:id => 'new_todo_list_form'} do |f| %>
 <ul>
 	<li>Title:</li>
 	<li><%= f.text_field :title %></li>
+  <li><span id='todo_list_title_errors' class='form_error'></span></li>
 	<li>Description:</li>
 	<li><%= f.text_area :description %></li>
+  <li><span id='todo_list_description_errors' class='form_error'></span></li>
 	<li><%= f.submit "SUBMIT TODOLIST" %></li>
 </ul>
 <% end %>

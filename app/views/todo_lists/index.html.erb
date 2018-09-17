@@ -1,18 +1,23 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'todo_lists/index.js' %>
+<% end %>
+
 <% if flash[:notice] %>
     <div class="flash"><%= flash[:notice] %></div>
 <% end %>
+<div class='container'>
 
-<h1> HELLO FISHIE, here are your Todo Lists: </h1>
+  <h1> HELLO FISHIE, here are your Todo Lists: </h1>
 
-<div>
-  <%= link_to "Create New Todo List", new_todo_list_path(@todo_list) %>
+  <div>
+    <%= link_to "Create New Todo List", new_todo_list_path(@todo_list) %>
+  </div>
+
+  <div id='todo-list-toggle'><button> Toggle Todo Lists</button></div>
+
+  <ul id='todo-list-container'>
+  	<% @todo_lists.each do |todo_list| %>
+  		<li><%= link_to todo_list.title, (todo_list) %></li>
+  	<% end %>
+  </ul>
 </div>
-
-<ul>
-	<% @todo_lists.each do |todo_list| %>
-		<li><%= link_to todo_list.title, (todo_list) %></li>
-	<% end %>
-</ul>
-
-
-
