@@ -25,6 +25,7 @@ class TodoListsController < ApplicationController
     description = todo_list_data[:description]
     @todo_list = TodoList.create({title: title, description: description})
     @todo_list_items = @todo_list.todo_list_items.all
+    flash[:notice] = "Succesfully created TodoList #{@todo_list.title}"
     render 'show'
   end
 
