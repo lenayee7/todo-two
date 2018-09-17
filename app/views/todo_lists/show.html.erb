@@ -1,3 +1,6 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'todo_lists/index.js' %>
+<% end %>
 
 <% if flash[:notice] %>
     <div class="flash"><%= flash[:notice] %></div>
@@ -13,7 +16,7 @@
 </div>
 
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %>
-<%= link_to 'Delete', todo_list_path(@todo_list), method: :delete %> 
+<%= link_to('Delete', todo_list_path(@todo_list), {method: :delete, id:'delete-todo-list'}) %> 
 
 <ul>
   <% @todo_list_items.each do |list_item| %>

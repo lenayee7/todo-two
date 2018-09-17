@@ -17,3 +17,20 @@
 .flash {
 	color: #8a00e6;
 }
+
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#new-todo-list-form {
+  color: purple;
+}
+
+.form_error{
+  display: none;
+  color: red;
+  border: 2px solid red;
+}
