@@ -1,16 +1,11 @@
 <% content_for :javascripts do %>
-  <%= javascript_include_tag 'todo_lists/color_module_simple.js' %>
+  <%= javascript_include_tag 'todo_lists/index.js' %>
 <% end %>
 
 <% if flash[:notice] %>
     <div class="flash"><%= flash[:notice] %></div>
 <% end %>
-<div class='container' id='color-changing-container'>
-  <div id='color-selection-element'>
-    <span id='dot1' class="dot purple lighten-5" data-color-value='purple lighten-5'></span>
-    <span id='dot2' class="dot purple lighten-3" data-color-value='purple lighten-3'></span>
-    <span id='dot3' class="dot purple darken-1" data-color-value='purple darken-1'></span>
-  </div>
+<div class='container'>
 
   <h1> HELLO FISHIE, here are your Todo Lists: </h1>
 
@@ -18,8 +13,8 @@
     <%= link_to "Create New Todo List", new_todo_list_path(@todo_list) %>
   </div>
 
-  <div id='todo-list-hider'>Hide Todo Lists</div>
-  <div id='todo-list-shower'>Show Todo Lists</div>
+  <div id='todo-list-toggle'><button> Toggle Todo Lists</button></div>
+
   <ul id='todo-list-container'>
   	<% @todo_lists.each do |todo_list| %>
   		<li><%= link_to todo_list.title, (todo_list) %></li>

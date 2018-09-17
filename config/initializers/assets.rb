@@ -14,6 +14,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w(
-  todo_lists/color_module.js
-  todo_lists/color_module_simple.js
+  todo_lists/index.js
 )
