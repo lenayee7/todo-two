@@ -1,23 +1,24 @@
 <% content_for :javascripts do %>
   <%= javascript_include_tag 'todo_lists/index.js' %>
 <% end %>
-
-<% if flash[:notice] %>
-    <div class="flash"><%= flash[:notice] %></div>
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag 'todo_lists/index' %>
 <% end %>
-<div class='container'>
 
+<div class='container'>
   <h1> HELLO FISHIE, here are your Todo Lists: </h1>
 
   <div>
-    <%= link_to "Create New Todo List", new_todo_list_path(@todo_list) %>
+    <%= link_to "+", new_todo_list_path(@todo_list), :class => "btn-floating btn-large waves-effect waves-light red, material-icons" %>
+    <h3 class="inline-block"> Create New Todo List </h3>
   </div>
 
   <div id='todo-list-toggle'><button> Toggle Todo Lists</button></div>
 
   <ul id='todo-list-container'>
   	<% @todo_lists.each do |todo_list| %>
-  		<li><%= link_to todo_list.title, (todo_list) %></li>
+      <li><%= link_to todo_list.title, (todo_list) %></li>
+      <li><%= todo_list.description %></li>
   	<% end %>
   </ul>
 </div>
