@@ -17,6 +17,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w(
   todo_lists/index.js
   todo_lists/index.css
+  todo_lists/show.css
 )
-
 

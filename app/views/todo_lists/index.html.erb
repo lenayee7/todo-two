@@ -6,19 +6,26 @@
 <% end %>
 
 <div class='container'>
-  <h1> HELLO FISHIE, here are your Todo Lists: </h1>
+  <h1 class='h1-title'> HELLO FISHIE, here are your Todo Lists: </h1>
 
   <div>
-    <%= link_to "+", new_todo_list_path(@todo_list), :class => "btn-floating btn-large waves-effect waves-light red, material-icons" %>
-    <h3 class="inline-block"> Create New Todo List </h3>
+    <a href="<%= new_todo_list_path(@todo_list) %>">
+      <i class='medium material-icons deep-purple-text lighten-1'>add_circle_outline</i></a>
+
+    <h3 class="inline-block deep-purple-text lighten-1"> Create New Todo List </h3>
   </div>
 
-  <div id='todo-list-toggle'><button> Toggle Todo Lists</button></div>
+  <div id='todo-list-toggle'>
+    <button id='todo-list-toggle-button' class='deep-purple lighten-1 grey-text text-lighten-5'> Toggle Todo Lists</button>
+  </div>
 
   <ul id='todo-list-container'>
   	<% @todo_lists.each do |todo_list| %>
-      <li><%= link_to todo_list.title, (todo_list) %></li>
-      <li><%= todo_list.description %></li>
+      <%- display_title = todo_list.title.blank? ? 'No Title' : todo_list.title %>
+      <li>
+        <div><%= link_to display_title, (todo_list) %></div>
+        <div><%= todo_list.description %></div>
+      </li>
   	<% end %>
   </ul>
 </div>
