@@ -1,5 +1,5 @@
 class TodoListItemsController < ApplicationController
-
+  protect_from_forgery :except => :create
   def new
     @todo_list = TodoList.find(params[:todo_list_id])
     @todo_list_item = TodoListItem.new(todo_list_id: params[:todo_list_id])
@@ -14,8 +14,13 @@ class TodoListItemsController < ApplicationController
 
     @todo_list_item = TodoListItem.create!(todo_list_id: params[:todo_list_id], name: name, description: description, priority: priority, completed: completed)
 
-    flash[:notice] = "YaYYYY you created a List Item"
-    redirect_to "/todo_lists/#{params[:todo_list_id]}"
+    respond_to do |format|
+      format.html do 
+        flash[:notice] = "YaYYYY you created a List Item"
+        redirect_to "/todo_lists/#{params[:todo_list_id]}"
+      end
+      format.json { render json: @todo_list_item }
+    end
   end
 
   def destroy
