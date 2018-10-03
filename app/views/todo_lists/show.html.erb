@@ -13,22 +13,67 @@
 <div/>
 
 <div class='row'>
+  <div class='col s12 m6'>
+    <form id='todo-list-item-form'>
+      <input id='todo-list-id-hidden-field' type='hidden' value='<%= @todo_list.id%>'>
+      <label for='todo-list-item-name'>Name</label>
+      <input
+        form='todo-list-item-form'
+        type='text'
+        name='name'
+        id='todo-list-item-name'
+        placeholder='Enter a Name'
+      >
+      <label for='todo-list-item-description'>Description</label>
+      <input
+        form='todo-list-item-form'
+        type='text'
+        name='description'
+        id='todo-list-item-description'
+        placeholder='Enter a Description'
+      >
+      <label for='todo-list-item-priority'>Priority</label>
+      <select
+        form='todo-list-item-form'
+        id='todo-list-item-priority'
+        style='display: inline-block;'
+      >
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+      </select>
+
+      <button type='submit' form='todo-list-item-form'>Submit</button>
+
+    </form>
+  </div>
+</div>
+
+<div class='row'>
   <div class='col s12'>
-	<%= link_to "Create New List Item", new_todo_list_todo_list_item_path(@todo_list) %>
+	<%= link_to 'Create New List Item', new_todo_list_todo_list_item_path(@todo_list) %>
   </div>
 </div>
 
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %>
-<%= link_to('Delete', todo_list_path(@todo_list), {method: :delete, id:'delete-todo-list'}) %> 
+<%= link_to('Delete', todo_list_path(@todo_list), {method: :delete, id:'delete-todo-list'}) %>
 
-<ul>
+<div id='todo-list-items' class='row'>
   <% @todo_list_items.each do |list_item| %>
-  <h4 style="text-decoration: underline">
-  	<%= "Name: #{list_item.name}" %> </h4>
-  <li><%= list_item.description %></li>
-  <li>Priority: <%= list_item.priority %></li>
-  <li><%= list_item.completed %></li>
-  <%= link_to 'Delete', todo_list_todo_list_item_path(@todo_list, list_item), method: :delete %>
-  <%= link_to 'Edit', edit_todo_list_todo_list_item_path(@todo_list, list_item) %>
+    <div class='col s12 m6'>
+      <div class='card'>
+        <div class='card-content'>
+          <div>Name: <%= "#{list_item.name}" %></div>
+          <div>Desc.: <%= "#{list_item.description}" %></div>
+          <div>Priority: <%= list_item.priority %></div>
+          <div>Completed: <%= list_item.completed %></div>
+          <div class='card-action'>
+            <%= link_to 'Delete', todo_list_todo_list_item_path(@todo_list, list_item), method: :delete %>
+            <%= link_to 'Edit', edit_todo_list_todo_list_item_path(@todo_list, list_item) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- div  -->
   <% end %>
-</ul>
+</div>
