@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-  $('#todo-list-item-form').on('submit', function(event) {
+  $('#todo-list-item-form').on('submit', handleSubmit);
+
+  function handleSubmit(event) {
 
     var data = {
       todo_list_item: {
@@ -56,7 +58,8 @@ $(document).ready(function() {
       },
       error: function(jqXHR,textStatus,errorThrown) {
         alert('ERROR didnt save item');
+        debugger
       }
     });
-  });
+  };
 });
