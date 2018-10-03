@@ -12,9 +12,15 @@
  *
  */
 
+body {
+  font-family: 'K2D', sans-serif;
+}
+
 .h1-title {
-  font-size: 1.75rem;
+  font-size: 2rem;
   margin: 1rem;
+  font-style: italic;
+  font-family: 'K2D', sans-serif;
 }
 
 .flash {

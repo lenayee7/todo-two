@@ -10,7 +10,6 @@ $(document).ready(function() {
         completed: false
       }
     };
-    debugger
     var todoListId = $('#todo-list-id-hidden-field').val();
     var url = 'http://localhost:3000/todo_lists/' + todoListId + '/todo_list_items.json';
     event.preventDefault();
@@ -20,9 +19,8 @@ $(document).ready(function() {
       type: 'POST',
       url: url,
       data: data,
-      success: function(data) {
+      success: function(responseData) {
         alert('You did it');
-        debugger
         // Inject HTML into our page
         // Find the element we're adding things into
         var items = $('#todo-list-items');
@@ -31,9 +29,23 @@ $(document).ready(function() {
                       <div>Name: NAME</div>\
                       <div>Description: DESCRIPTION</div>\
                       <div>Priority: PRIORITY</div>\
-                      <div>Incomplete</div>\
-                      <div class='card-action'>TODO: insert links here</div>\
-                    </div></div></div>"
+                      <div>Completed: COMPLETED</div>\
+                      <div class='card-action'>\
+                        <a rel='nofollow' data-method='delete' href='TDI_URL'>Delete</a>\
+                        <a href='TDI_EDIT_URL'>Edit</a>\
+                      </div>\
+                    </div></div></div>";
+
+        var tdiUrl = '/todo_lists/' + responseData.todo_list_id + '/todo_list_items/' + responseData.id;
+        var tdiEditUrl = '/todo_lists/' + responseData.todo_list_id + '/todo_list_items/' + responseData.id + '/edit';
+
+        html = html.replace('NAME', responseData.name);
+        html = html.replace('DESCRIPTION', responseData.description);
+        html = html.replace('PRIORITY', responseData.priority);
+        html = html.replace('COMPLETED', responseData.completed);
+        html = html.replace('TDI_URL', tdiUrl);
+        html = html.replace('TDI_EDIT_URL', tdiEditUrl);
+
         // Replace placeholders with actual DATA https://www.w3schools.com/jsref/jsref_replace.asp
         // inject: https://api.jquery.com/append/
         items.append(html);
